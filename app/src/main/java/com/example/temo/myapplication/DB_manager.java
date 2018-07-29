@@ -35,7 +35,7 @@ public class DB_manager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //  Toast.makeText(context, "DB Oncreate called", Toast.LENGTH_SHORT).show();
+
         db.execSQL("CREATE TABLE " + TABLE_NAME + "( " + ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + NAME + " TEXT," + PHONE + " TEXT," + DATE + " TEXT ," + COST + " TEXT ," + METHOD + " TEXT ); ");
         //  db.execSQL("CREATE table " + TABLE_DETELS + "( " + DETELS_ID + " INTEGER," + DETELS_NEWCOST + " TEXT," + DETELS_DAT + " TEXT);");
     }

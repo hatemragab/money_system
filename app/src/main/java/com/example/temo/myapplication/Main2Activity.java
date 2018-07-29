@@ -190,10 +190,18 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
                         recyclerView.setAdapter(recAdapter);
 
                         dialog.dismiss();
-                        for (int id =0 ;id<1000;id++)
-                        {
-                            new File("/data/data/com.example.temo.myapplication/files/" + id + "config.txt").delete();
-                        }
+                        Thread thread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                for (int id =0 ;id<100000;id++)
+                                {
+                                    new File("/data/data/com.example.temo.myapplication/files/" + id + "config.txt").delete();
+
+                                }
+                            }
+                        });
+                        thread.start();
+
 
                     }
                 });

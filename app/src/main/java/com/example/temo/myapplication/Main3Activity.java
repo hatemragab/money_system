@@ -12,7 +12,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +28,8 @@ public class Main3Activity extends AppCompatActivity {
     Mitem mitem;
     Mitem mitem1;
     DB_manager db_manager;
-    ListView listView;
-    ArrayAdapter arrayAdapter;
+    TextView read;
+
     int id = 0;
     int postion;
 
@@ -36,7 +42,7 @@ public class Main3Activity extends AppCompatActivity {
         textView7 = findViewById(R.id.text7);
         textView8 = findViewById(R.id.text8);
         textView9 = findViewById(R.id.text9);
-        listView = findViewById(R.id.list);
+        read = findViewById(R.id.read);
     }
 
     @Override
@@ -54,10 +60,27 @@ public class Main3Activity extends AppCompatActivity {
         textView7.setText(mitem1.getCost() + "");
         textView8.setText(mitem1.getMethod() + "");
         textView9.setText(mitem1.getDate() + "");
-        List<String> list = new ArrayList<>();
-        list.add("sad");
-        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
-        listView.setAdapter(arrayAdapter);
+
+        File file = new File("/data/data/com.example.temo.myapplication/files/" + id + "config.txt");
+        try {
+            FileReader filereader = new FileReader(file);
+            String readed = " ";
+            BufferedReader reader = new BufferedReader(filereader);
+            StringBuffer buffer = new StringBuffer();
+            while ((readed = reader.readLine()) != null) {
+                buffer.append(readed + "\n").toString();
+
+            }
+            read.setText(buffer + "\n");
+            filereader.close();
+            reader.close();
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //int x= db_manager.getId2();
         //Toast.makeText(this, "this id is"+x, Toast.LENGTH_SHORT).show();
     }

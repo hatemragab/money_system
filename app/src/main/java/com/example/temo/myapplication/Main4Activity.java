@@ -92,11 +92,10 @@ public class Main4Activity extends AppCompatActivity {
         manager.update(name, phone, cost, method, s);
         Toast.makeText(this, "done", Toast.LENGTH_SHORT).show();
         manager.updateDate(date, s);
-        int ccost = Integer.valueOf(cost);
-        int nncost = Integer.valueOf(newCost);
 
-        if (ccost != nncost) {
-            writeToFile("this user has update the cost from \n" + newCost + " to " + cost + " at " + date, this);
+
+        if (!cost.equals(newCost)) {
+            writeToFile(" this user has update the cost from \n" + newCost + " to " + cost + " at " + date, this);
         }
 
         finish();
