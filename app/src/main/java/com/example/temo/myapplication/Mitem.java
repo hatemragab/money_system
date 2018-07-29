@@ -1,10 +1,14 @@
 package com.example.temo.myapplication;
 
-public class Mitem {
+import java.io.Serializable;
+
+public class Mitem implements Serializable {
     String name;
     String phone;
     String cost;
     String date;
+    String method;
+    int id;
 
     public String getName() {
         return name;
@@ -50,16 +54,25 @@ public class Mitem {
         this.date = date;
     }
 
-    public Mitem(String name, String phone, String cost, String method, String date) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Mitem(int id, String name, String phone, String date, String cost, String method) {
 
         this.name = name;
         this.phone = phone;
         this.cost = cost;
         this.method = method;
-        this.date=date;
+        this.date = date;
+        this.id = id;
+
 
     }
 
-    String method;
 
 }

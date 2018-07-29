@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void lognIn(View view) {
 
-        String name = editText1.getText().toString();
-        String pass = editText2.getText().toString();
+        String name = editText1.getText().toString().trim();
+        String pass = editText2.getText().toString().trim();
         if (checkBox.isChecked()) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("name", editText1.getText().toString().trim());

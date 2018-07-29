@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder> {
+public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder>{
     ArrayList<Mitem> arrayList;
     Context context;
-
+    cominucation listnner;
     RecAdapter(Context context, ArrayList<Mitem> arrayList) {
         this.arrayList = arrayList;
         this.context = context;
@@ -22,7 +22,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.rec_item, null, true);
+        View view = LayoutInflater.from(context).inflate(R.layout.rec_item, parent, false);
 
         return new ViewHolder(view);
     }
@@ -37,13 +37,20 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder> {
         holder.method.setText(p.getMethod());
         holder.date.setText(p.getDate());
     }
-
+    interface cominucation {
+        void transfer(int postion);
+    }
+    public void Adaptorsync(cominucation listnner) {
+        this.listnner = listnner;
+    }
     @Override
     public int getItemCount() {
         return arrayList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+
+
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, phone, cost, method, date;
 
         public ViewHolder(View itemView) {
@@ -53,9 +60,15 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder> {
             cost = itemView.findViewById(R.id.cost);
             method = itemView.findViewById(R.id.method);
             date = itemView.findViewById(R.id.date);
+            itemView.setOnClickListener(this);
+        }
 
+        @Override
+        public void onClick(View v) {
+            listnner.transfer(getAdapterPosition());
         }
     }
+
     public void setFilter(ArrayList<Mitem> newFilter)
     {
         arrayList=new ArrayList<>();

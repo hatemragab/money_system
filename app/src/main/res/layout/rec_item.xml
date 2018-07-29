@@ -23,7 +23,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" Name : "
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/name"
@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:text=" hatem "
                     android:textColor="#4e3d3d"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
 
                     android:textStyle="bold" />
 
@@ -41,14 +41,14 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" Phone : "
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/phone"
@@ -56,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:text="01012309598 "
                     android:textColor="#4e3d3d"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
 
@@ -65,14 +65,14 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" Price   : "
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/cost"
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:text="12 $ "
                     android:textColor="#4e3d3d"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
 
@@ -94,13 +94,13 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp">
+                    android:layout_marginTop="2dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" Method: "
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/method"
@@ -109,7 +109,7 @@
 
                         android:text="by year "
                         android:textColor="#4e3d3d"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
 
@@ -124,7 +124,7 @@
                     android:text="2/4/2018 11:30"
                     android:textColor="#4e3d3d"
 
-                    android:textSize="20sp" />
+                    android:textSize="14sp" />
             </RelativeLayout>
 
         </LinearLayout>
