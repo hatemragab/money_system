@@ -95,7 +95,7 @@ public class Main4Activity extends AppCompatActivity {
 
 
         if (!cost.equals(newCost)) {
-            writeToFile(" this user has update the cost from \n" + newCost + " to " + cost + " at " + date, this);
+            writeToFile(" this member had update the price from \n" + newCost + " to " + cost + " at " + date, this);
         }
 
         finish();
