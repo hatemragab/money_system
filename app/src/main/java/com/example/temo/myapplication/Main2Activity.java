@@ -15,6 +15,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,7 +31,10 @@ import android.widget.Toast;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -52,7 +56,6 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         manager = new DB_manager(this);
-
         Toolbar toolbar = findViewById(R.id.toole);
         setSupportActionBar(toolbar);
         recyclerView = findViewById(R.id.rec);
@@ -123,10 +126,6 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
                             recAdapter = new RecAdapter(Main2Activity.this, arrayList);//Adapter
                             recAdapter.Adaptorsync(Main2Activity.this);
                             recyclerView.setAdapter(recAdapter);
-                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/moneySystem");
-                            file.mkdir();
-
-                            Toast.makeText(Main2Activity.this, ""+file, Toast.LENGTH_LONG).show();
  //                           FileOutputStream out = new FileOutputStream();
 
                             alertDialog.dismiss();
@@ -144,6 +143,7 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
         recAdapter = new RecAdapter(Main2Activity.this, arrayList);//Adapter
         recAdapter.Adaptorsync(this);
         recyclerView.setAdapter(recAdapter);
+
     }
 
     @Override
@@ -190,6 +190,11 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
                         recyclerView.setAdapter(recAdapter);
 
                         dialog.dismiss();
+                        for (int id =0 ;id<1000;id++)
+                        {
+                            new File("/data/data/com.example.temo.myapplication/files/" + id + "config.txt").delete();
+                        }
+
                     }
                 });
                 builder.show();
@@ -226,6 +231,7 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
     public void transfer(int postion) {
         Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
         intent.putExtra("items", arrayList.get(postion));
+        intent.putExtra("id",postion);
         startActivity(intent);
 
     }

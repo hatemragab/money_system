@@ -30,14 +30,14 @@ public class DB_manager extends SQLiteOpenHelper {
         super(context, "hatem", null, 1);
 
         sqLiteDatabase = getWritableDatabase();
-        this.context=context;
+        this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-      //  Toast.makeText(context, "DB Oncreate called", Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(context, "DB Oncreate called", Toast.LENGTH_SHORT).show();
         db.execSQL("CREATE TABLE " + TABLE_NAME + "( " + ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + NAME + " TEXT," + PHONE + " TEXT," + DATE + " TEXT ," + COST + " TEXT ," + METHOD + " TEXT ); ");
-        db.execSQL("CREATE table "+TABLE_DETELS+" ("+DETELS_ID+" INTEGER , foreign key("+DETELS_ID+") references " + TABLE_NAME + "(" + ID + "));");
+        //  db.execSQL("CREATE table " + TABLE_DETELS + "( " + DETELS_ID + " INTEGER," + DETELS_NEWCOST + " TEXT," + DETELS_DAT + " TEXT);");
     }
 
     @Override
@@ -45,17 +45,17 @@ public class DB_manager extends SQLiteOpenHelper {
 
     }
 
-    public int getId2() {
+    /*public int getId2() {
         String com[] = new String[]{DETELS_ID};
         Cursor cursor = sqLiteDatabase.query(TABLE_DETELS, com, null, null, null, null, null);
         int idd = 100;
 
 
-            idd = cursor.getInt(cursor.getColumnIndex(DETELS_ID));
-         
+        idd = cursor.getInt(cursor.getColumnIndex(DETELS_ID));
+
 
         return idd;
-    }
+    }*/
 
     public long insert(String name, String phone, String date, String cost, String method) {
         ContentValues contentValues = new ContentValues();
