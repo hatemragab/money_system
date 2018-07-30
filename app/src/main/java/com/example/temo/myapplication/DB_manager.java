@@ -5,25 +5,24 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class DB_manager extends SQLiteOpenHelper {
-    SQLiteDatabase sqLiteDatabase;
-    public static final String ID = "id";
-    public static final String NAME = "name";
-    public static final String PHONE = "phone";
-    public static final String DATE = "date";
-    public static final String COST = "cost";
-    public static final String METHOD = "method";
-    public static final String TABLE_NAME = "tabe";
+class DB_manager extends SQLiteOpenHelper {
+    private SQLiteDatabase sqLiteDatabase;
+    private static final String ID = "id";
+    private static final String NAME = "name";
+    private static final String PHONE = "phone";
+    private static final String DATE = "date";
+    private static final String COST = "cost";
+    private static final String METHOD = "method";
+    private static final String TABLE_NAME = "tabe";
     public static final String TABLE_DETELS = "tabedetels";
     public static final String DETELS_NEWCOST = "newcost";
     public static final String DETELS_DAT = "newdate";
     public static final String DETELS_ID = "newid";
 
-    Context context;
+    private Context context;
 
     public DB_manager(Context context) {
 

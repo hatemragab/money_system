@@ -9,31 +9,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 public class Main3Activity extends AppCompatActivity {
-    TextView textView5, textView6, textView7, textView8, textView9;
-    Intent intent;
-    Mitem mitem;
-    Mitem mitem1;
-    DB_manager db_manager;
-    TextView read;
+    private TextView textView5;
+    private TextView textView6;
+    private TextView textView7;
+    private TextView textView8;
+    private TextView textView9;
+    private Intent intent;
+    private Mitem mitem;
+    private Mitem mitem1;
+    private DB_manager db_manager;
+    private TextView read;
 
-    int id = 0;
-    int postion;
+    private int id = 0;
+    private int postion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +45,9 @@ public class Main3Activity extends AppCompatActivity {
         textView9 = findViewById(R.id.text9);
         read = findViewById(R.id.read);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(R.string.view_page);
+        Objects.requireNonNull(actionBar).setTitle(R.string.view_page);
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBare)));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         actionBar.show();
     }
@@ -72,11 +71,11 @@ public class Main3Activity extends AppCompatActivity {
         File file = new File("/data/data/com.example.temo.myapplication/files/" + id + "config.txt");
         try {
             FileReader filereader = new FileReader(file);
-            String readed = " ";
+            String readed;
             BufferedReader reader = new BufferedReader(filereader);
-            StringBuffer buffer = new StringBuffer();
+            StringBuilder buffer = new StringBuilder();
             while ((readed = reader.readLine()) != null) {
-                buffer.append(readed + "\n").toString();
+                buffer.append(readed).append("\n").toString();
 
             }
             read.setText(buffer + "\n");
@@ -124,15 +123,15 @@ public class Main3Activity extends AppCompatActivity {
 
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Delete");
-                builder.setMessage("The selected item will be deleted");
-                builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+                builder.setTitle(R.string.delete);
+                builder.setMessage(R.string.the_select_item_will_delete);
+                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
                 });
-                builder.setPositiveButton("delete", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Thread thread = new Thread(new Runnable() {

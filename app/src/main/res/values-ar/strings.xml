@@ -5,7 +5,6 @@
     <string name="name">الاسم :  </string>
     <string name="phone">رقم التلفون : </string>
     <string name="price">المبلغ : </string>
-
     <string name="method">الطريقه : </string>
     <string name="cancel"> الغاء </string>
     <string name="done"> تم </string>
@@ -16,7 +15,7 @@
     <string name="log_out">تسجيل خروج</string>
     <string name="search">بحث</string>
     <string name="search_by_name">بحث بالاسم </string>
-    <string name="add_new_member">اضافه عذو جديد</string>
+    <string name="add_new_member">اضافه عضو جديد</string>
     <string name="inserted">تم لاضافه</string>
     <string name="contacts">المحتوي </string>
     <string name="details">التفاصيل </string>
@@ -30,4 +29,5 @@
     <string name="_0_to">0 الي </string>
     <string name="_at_">عند</string>
     <string name="_to_">الي</string>
+    <string name="the_select_item_will_delete">هل تريد انت تمسح هذا العضو !</string>
 </resources>

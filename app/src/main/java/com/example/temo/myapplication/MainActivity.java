@@ -7,16 +7,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    EditText editText1, editText2;
-    CheckBox checkBox;
-    public final String NAME = "root";
-    public final String PASS = "admin";
-    SharedPreferences sharedPreferences;
+    private EditText editText1;
+    private EditText editText2;
+    private CheckBox checkBox;
+    private final String NAME = "root";
+    private final String PASS = "admin";
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

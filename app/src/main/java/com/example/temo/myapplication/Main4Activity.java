@@ -1,50 +1,40 @@
 package com.example.temo.myapplication;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.nio.Buffer;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Objects;
 
 public class Main4Activity extends AppCompatActivity {
-    Intent intent;
-    EditText editText1, editText2, editText3, editText4;
-    TextView textView;
-    DB_manager manager;
-    String date;
-    String s;
-    String newCost;
-    String cost;
+    private Intent intent;
+    private EditText editText1;
+    private EditText editText2;
+    private EditText editText3;
+    private EditText editText4;
+    private TextView textView;
+    private DB_manager manager;
+    private String date;
+    private String s;
+    private String newCost;
+    private String cost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,12 +53,17 @@ public class Main4Activity extends AppCompatActivity {
         editText3.setText(intent.getStringExtra("cost") + "");
         editText4.setText(intent.getStringExtra("method") + "");
         newCost = intent.getStringExtra("cost");
-        Calendar calendar = Calendar.getInstance();
-        date = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        Date dateee = new Date(); // your date
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dateee);
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH) + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        date = day + "/" + month + "/" + year;
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(R.string.edit_page);
+        Objects.requireNonNull(actionBar).setTitle(R.string.edit_page);
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBare)));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         actionBar.show();
         textView.setText(date + "");
@@ -131,7 +126,7 @@ public class Main4Activity extends AppCompatActivity {
     }
 
 
-    public boolean isStoragePermissionGranted() {
+    private boolean isStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED) {

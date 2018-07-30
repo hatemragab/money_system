@@ -5,52 +5,35 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.SimpleAdapter;
-import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class Main2Activity extends AppCompatActivity implements MaterialSearchView.OnQueryTextListener, RecAdapter.cominucation {
 
-    RecyclerView recyclerView;
-    FloatingActionButton floatingActionButton;
-    MaterialSearchView materialSearchView;
-    RecAdapter recAdapter;
-    DB_manager manager;
-    ArrayList<Mitem> arrayList;
+    private RecyclerView recyclerView;
+    private FloatingActionButton floatingActionButton;
+    private MaterialSearchView materialSearchView;
+    private RecAdapter recAdapter;
+    private DB_manager manager;
+    private ArrayList<Mitem> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,8 +104,18 @@ public class Main2Activity extends AppCompatActivity implements MaterialSearchVi
                         // String nMethod = spinner.getSelectedItem().toString();
                         //SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyy HH:MM a");
                         //String date = s.format(new Date());
-                        Calendar calendar = Calendar.getInstance();
-                        String date = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+                        // Calendar calendar = Calendar.getInstance();
+
+                        // String date = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+
+                        Date dateee = new Date(); // your date
+                        Calendar cal = Calendar.getInstance();
+                        cal.setTime(dateee);
+                        int year = cal.get(Calendar.YEAR);
+                        int month = cal.get(Calendar.MONTH) + 1;
+                        int day = cal.get(Calendar.DAY_OF_MONTH);
+                        String date = day + "/" + month + "/" + year;
+                        //Toast.makeText(Main2Activity.this, "" + day + "/" + month + "/" + year, Toast.LENGTH_SHORT).show();
 
                         manager.insert(nName, nPhone, date, nCost, nMethod);
 
@@ -214,7 +207,7 @@ public class Main2Activity extends AppCompatActivity implements MaterialSearchVi
         return super.onOptionsItemSelected(item);
     }
 
-    ArrayList<Mitem> newList;
+    private ArrayList<Mitem> newList;
 
     @Override
     public boolean onQueryTextSubmit(String query) {

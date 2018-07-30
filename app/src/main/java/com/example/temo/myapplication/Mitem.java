@@ -2,13 +2,13 @@ package com.example.temo.myapplication;
 
 import java.io.Serializable;
 
-public class Mitem implements Serializable {
-    String name;
-    String phone;
-    String cost;
-    String date;
-    String method;
-    int id;
+class Mitem implements Serializable {
+    private String name;
+    private String phone;
+    private String cost;
+    private String date;
+    private String method;
+    private int id;
 
     public String getName() {
         return name;

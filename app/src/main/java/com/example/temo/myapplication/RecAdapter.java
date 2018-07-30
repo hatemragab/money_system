@@ -11,9 +11,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder>{
-    ArrayList<Mitem> arrayList;
-    Context context;
-    cominucation listnner;
+    private ArrayList<Mitem> arrayList;
+    private Context context;
+    private cominucation listnner;
     RecAdapter(Context context, ArrayList<Mitem> arrayList) {
         this.arrayList = arrayList;
         this.context = context;
@@ -53,7 +53,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder>{
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, phone, cost, method, date;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
             phone = itemView.findViewById(R.id.phone);

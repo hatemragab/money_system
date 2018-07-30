@@ -5,7 +5,7 @@
     <string name="phone">Phone :</string>
     <string name="price">Price :</string>
     <string name="method">method:</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel">Cancel</string>
     <string name="done">done</string>
     <string name="delete_all">Delete All</string>
     <string name="all_data_will_deleted">All data will deleted</string>
@@ -29,6 +29,7 @@
 
     <string name="_to_"> \t to \t </string>
     <string name="_at_"> \t  at \t   </string>
+    <string name="the_select_item_will_delete">The selected item will be deleted</string>
 
 
 </resources>
