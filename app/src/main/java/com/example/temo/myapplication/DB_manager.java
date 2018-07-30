@@ -57,15 +57,15 @@ public class DB_manager extends SQLiteOpenHelper {
         return idd;
     }*/
 
-    public long insert(String name, String phone, String date, String cost, String method) {
+    public void insert(String name, String phone, String date, String cost, String method) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(NAME, name);
         contentValues.put(PHONE, phone);
         contentValues.put(DATE, date);
         contentValues.put(COST, cost);
         contentValues.put(METHOD, method);
-        long x = sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
-        return x;
+       sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
+
     }
 
     public ArrayList<Mitem> getArrayList() {

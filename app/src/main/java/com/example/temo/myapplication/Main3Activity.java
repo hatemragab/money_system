@@ -2,6 +2,8 @@ package com.example.temo.myapplication;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,6 +45,12 @@ public class Main3Activity extends AppCompatActivity {
         textView8 = findViewById(R.id.text8);
         textView9 = findViewById(R.id.text9);
         read = findViewById(R.id.read);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(R.string.view_page);
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBare)));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        actionBar.show();
     }
 
     @Override
@@ -127,14 +135,22 @@ public class Main3Activity extends AppCompatActivity {
                 builder.setPositiveButton("delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        db_manager.delete(id + "");
-                        new File("/data/data/com.example.temo.myapplication/files/" + id + "config.txt").delete();
-
-                        finish();
+                        Thread thread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                db_manager.delete(id + "");
+                                new File("/data/data/com.example.temo.myapplication/files/" + id + "config.txt").delete();
+                            }
+                        });
+                        thread.start();
+                      finish();
                     }
                 });
                 builder.show();
-
+                break;
+            }
+            case android.R.id.home:{
+                finish();
             }
 
         }

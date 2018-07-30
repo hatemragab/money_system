@@ -10,16 +10,21 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toole"
-        app:titleTextColor="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#bf2cba"
-
         android:minHeight="?attr/actionBarSize"
-        app:title="Contacts">
 
+        app:title="@string/contacts"
+        app:titleTextColor="#fff"/>
 
-    </android.support.v7.widget.Toolbar>
+    <com.miguelcatalan.materialsearchview.MaterialSearchView
+        android:layout_width="match_parent"
+        android:id="@+id/search_view"
+
+        app:searchBackground="@color/actionBare"
+        android:layout_height="wrap_content"/>
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rec"

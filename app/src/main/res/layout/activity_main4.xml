@@ -1,42 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:padding="4dp"
     tools:context=".Main4Activity">
-<EditText
-    android:hint="name"
-    android:layout_width="match_parent"
-    android:id="@+id/update1"
-    android:layout_height="wrap_content" />
-    <EditText
-        android:inputType="number"
-        android:hint="phone"
+    />
+    <LinearLayout
+        android:layout_marginTop="3dp"
         android:layout_width="match_parent"
-        android:id="@+id/update2"
-        android:layout_height="wrap_content" />
-    <EditText
-        android:inputType="number"
-        android:hint="cost"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:text="@string/name"
+            android:textColor="#123"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/update1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="3dp"
         android:layout_width="match_parent"
-        android:id="@+id/update3"
-        android:layout_height="wrap_content" />
-    <EditText
-        android:hint="method"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:text="@string/phone"
+            android:textColor="#123"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/update2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:inputType="number" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="3dp"
         android:layout_width="match_parent"
-        android:id="@+id/update4"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="18dp"
+            android:text="@string/price"
+            android:textColor="#123"
+            android:textSize="18sp" />
+
+
+        <EditText
+            android:id="@+id/update3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:inputType="number" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginTop="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="18dp"
+            android:text="@string/method"
+            android:textColor="#123"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/update4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
     <TextView
-        android:layout_width="match_parent"
+        android:layout_marginTop="3dp"
         android:id="@+id/update5"
-        android:textSize="22sp"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp" />
+
     <Button
-        android:layout_width="wrap_content"
+        android:background="#7094b9"
+        android:layout_marginTop="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Save"
         android:onClick="save"
-        android:layout_height="wrap_content" />
+        android:text="@string/save" />
 </LinearLayout>

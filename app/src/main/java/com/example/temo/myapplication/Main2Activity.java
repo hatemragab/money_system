@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -42,11 +43,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class Main2Activity extends AppCompatActivity implements SearchView.OnQueryTextListener, RecAdapter.cominucation {
+public class Main2Activity extends AppCompatActivity implements MaterialSearchView.OnQueryTextListener, RecAdapter.cominucation {
 
     RecyclerView recyclerView;
     FloatingActionButton floatingActionButton;
-
+    MaterialSearchView materialSearchView;
     RecAdapter recAdapter;
     DB_manager manager;
     ArrayList<Mitem> arrayList;
@@ -57,7 +58,13 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
         setContentView(R.layout.activity_main2);
         manager = new DB_manager(this);
         Toolbar toolbar = findViewById(R.id.toole);
+        toolbar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBare)));
+        materialSearchView = findViewById(R.id.search_view);
+        materialSearchView.setHint(getString(R.string.search_by_name));
+
+        //  materialSearchView.setHintTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
+
         recyclerView = findViewById(R.id.rec);
 
         arrayList = manager.getArrayList();
@@ -79,7 +86,7 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
             @Override
             public void onClick(View v) {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
-                builder.setTitle("Add new Member");
+                builder.setTitle(R.string.add_new_member);
                 builder.setCancelable(false);
                 View view = getLayoutInflater().inflate(R.layout.alert_dialog, null, true);
                 builder.setView(view);
@@ -117,19 +124,19 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
                         Calendar calendar = Calendar.getInstance();
                         String date = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
 
-                        long x = manager.insert(nName, nPhone, date, nCost, nMethod);
-                        if (x >= 0) {
-                           // Toast.makeText(Main2Activity.this, "inseted", Toast.LENGTH_SHORT).show();
+                        manager.insert(nName, nPhone, date, nCost, nMethod);
 
-                            arrayList = manager.getArrayList();
+                        Toast.makeText(Main2Activity.this, R.string.inserted, Toast.LENGTH_SHORT).show();
 
-                            recAdapter = new RecAdapter(Main2Activity.this, arrayList);//Adapter
-                            recAdapter.Adaptorsync(Main2Activity.this);
-                            recyclerView.setAdapter(recAdapter);
- //                           FileOutputStream out = new FileOutputStream();
+                        arrayList = manager.getArrayList();
 
-                            alertDialog.dismiss();
-                        }
+                        recAdapter = new RecAdapter(Main2Activity.this, arrayList);//Adapter
+                        recAdapter.Adaptorsync(Main2Activity.this);
+                        recyclerView.setAdapter(recAdapter);
+                        //                           FileOutputStream out = new FileOutputStream();
+
+                        alertDialog.dismiss();
+
                     }
                 });
             }
@@ -150,12 +157,9 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         MenuItem item = menu.findItem(R.id.search23);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
-        searchView.setQueryHint("search by name ");
-        searchView.setIconifiedByDefault(true);
-        searchView.setIconified(true);
-
-        searchView.setOnQueryTextListener(this);
+        materialSearchView.setMenuItem(item);
+        materialSearchView.setOnQueryTextListener(this);
+        // searchView.setOnQueryTextListener(this);
         return true;
     }
 
@@ -172,15 +176,15 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
             }
             case R.id.iii: {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Delete All");
-                builder.setMessage("All data will deleted");
-                builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+                builder.setTitle(R.string.delete_all);
+                builder.setMessage(R.string.all_data_will_deleted);
+                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
                 });
-                builder.setPositiveButton("delete", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         manager.deleteAll();
@@ -193,8 +197,7 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
                         Thread thread = new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                for (int id =0 ;id<100000;id++)
-                                {
+                                for (int id = 0; id < 100000; id++) {
                                     new File("/data/data/com.example.temo.myapplication/files/" + id + "config.txt").delete();
 
                                 }
@@ -211,16 +214,19 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
         return super.onOptionsItemSelected(item);
     }
 
+    ArrayList<Mitem> newList;
+
     @Override
     public boolean onQueryTextSubmit(String query) {
+        recAdapter.setFilter(newList);
+        return true;
 
-        return false;
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
         newText = newText.toLowerCase();
-        ArrayList<Mitem> newList = new ArrayList<>();
+        newList = new ArrayList<>();
         for (Mitem mitem : arrayList) {
             String name = mitem.getName().toLowerCase();
             if (name.startsWith(newText)) {
@@ -239,7 +245,7 @@ public class Main2Activity extends AppCompatActivity implements SearchView.OnQue
     public void transfer(int postion) {
         Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
         intent.putExtra("items", arrayList.get(postion));
-        intent.putExtra("id",postion);
+        intent.putExtra("id", postion);
         startActivity(intent);
 
     }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">متحكم النقود</string>
+    <string name="name">الاسم :  </string>
+    <string name="phone">رقم التلفون : </string>
+    <string name="price">المبلغ : </string>
+
+    <string name="method">الطريقه : </string>
+    <string name="cancel"> الغاء </string>
+    <string name="done"> تم </string>
+    <string name="delete_all">مسح الكل </string>
+    <string name="all_data_will_deleted">سيتم مسح كل البيانات </string>
+    <string name="delete"> حذف </string>
+    <string name="edit">تعديل</string>
+    <string name="log_out">تسجيل خروج</string>
+    <string name="search">بحث</string>
+    <string name="search_by_name">بحث بالاسم </string>
+    <string name="add_new_member">اضافه عذو جديد</string>
+    <string name="inserted">تم لاضافه</string>
+    <string name="contacts">المحتوي </string>
+    <string name="details">التفاصيل </string>
+    <string name="no_change_in_price_yet">لا يوجد تغير في السعر حتي لان !</string>
+    <string name="save">حفظ</string>
+    <string name="view_page">صفحه العرض</string>
+    <string name="edit_page">صفحه التعديل</string>
+    <string name="this_member_had_update_price_from">هذا العضو تم تحديث سعره من </string>
+    <string name="updated">تم التحديث</string>
+    <string name="you_should_accept_first_to_continue">يجب عليك الموافقه ع استخدام التطبيق للتعديل ع الذاكره ليتم حفظ ملفاتك </string>
+    <string name="_0_to">0 الي </string>
+    <string name="_at_">عند</string>
+    <string name="_to_">الي</string>
+</resources>

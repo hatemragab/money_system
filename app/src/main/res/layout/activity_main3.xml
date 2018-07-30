@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/white"
         android:orientation="vertical">
 
         <LinearLayout
@@ -20,16 +21,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Name : "
+                android:text="@string/name"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" hatem "
+                android:text="@string/name"
                 android:textColor="#4e3d3d"
-                android:textSize="20sp"
+                android:textSize="17sp"
 
                 android:textStyle="bold" />
 
@@ -45,7 +46,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Phone : "
+                android:text="@string/phone"
                 android:textSize="20sp" />
 
             <TextView
@@ -54,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:text="01012309598 "
                 android:textColor="#4e3d3d"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
 
@@ -69,7 +70,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Price   : "
+                android:text="@string/price"
                 android:textSize="20sp" />
 
             <TextView
@@ -78,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:text="12 $ "
                 android:textColor="#4e3d3d"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
 
@@ -97,7 +98,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" Method: "
+                    android:text="@string/method"
                     android:textSize="20sp" />
 
                 <TextView
@@ -107,7 +108,7 @@
 
                     android:text="by year "
                     android:textColor="#4e3d3d"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
 
@@ -118,30 +119,48 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentLeft="true"
+               android:layout_alignParentTop="false"
                 android:text="2/4/2018 11:30"
+                android:layout_marginTop="8dp"
                 android:textColor="#4e3d3d"
-
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </RelativeLayout>
 
     </LinearLayout>
 
     <ScrollView
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
+
+
             <TextView
+                android:background="@drawable/text_style"
                 android:layout_width="match_parent"
-                android:padding="3dp"
-                android:layout_margin="3dp"
-                android:textSize="17sp"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:text="@string/details"
+                android:textAlignment="center"
+                android:textColor="#123"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <TextView
                 android:id="@+id/read"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:padding="3dp"
+                android:text="@string/no_change_in_price_yet"
+
+                android:textColor="#123"
+                android:textSize="15sp" />
 
         </LinearLayout>
 

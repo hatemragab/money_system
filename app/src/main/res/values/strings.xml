@@ -1,4 +1,34 @@
 <resources>
     <string name="app_name">money System</string>
 
+    <string name="name">Name :</string>
+    <string name="phone">Phone :</string>
+    <string name="price">Price :</string>
+    <string name="method">method:</string>
+    <string name="cancel">cancel</string>
+    <string name="done">done</string>
+    <string name="delete_all">Delete All</string>
+    <string name="all_data_will_deleted">All data will deleted</string>
+    <string name="delete">delete</string>
+    <string name="edit">edit</string>
+    <string name="log_out">Log_Out</string>
+    <string name="search">search</string>
+    <string name="search_by_name">search by name</string>
+    <string name="add_new_member">Add new Member</string>
+    <string name="inserted">inserted</string>
+    <string name="contacts">Contacts</string>
+    <string name="details">details</string>
+    <string name="no_change_in_price_yet">No change in price yet !</string>
+    <string name="save">Save</string>
+    <string name="view_page">View Page</string>
+    <string name="edit_page">Edit page</string>
+    <string name="this_member_had_update_price_from">this member had update the price from \n</string>
+    <string name="updated">updated</string>
+    <string name="you_should_accept_first_to_continue">you should accept first to continue</string>
+    <string name="_0_to"> 0 to \t </string>
+
+    <string name="_to_"> \t to \t </string>
+    <string name="_at_"> \t  at \t   </string>
+
+
 </resources>

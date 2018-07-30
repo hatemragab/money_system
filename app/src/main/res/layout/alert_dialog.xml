@@ -4,24 +4,29 @@
     android:orientation="vertical"
     android:layout_height="wrap_content">
 <EditText
-    android:hint="name"
+    android:drawableLeft="@drawable/person"
+    android:hint="@string/name"
     android:layout_width="match_parent"
     android:id="@+id/edit3"
     android:layout_height="wrap_content" />
     <EditText
+        android:drawableLeft="@drawable/phone"
         android:inputType="number"
-        android:hint="phone"
+        android:hint="@string/phone"
         android:layout_width="match_parent"
         android:id="@+id/edit4"
         android:layout_height="wrap_content" />
     <EditText
+        android:drawableLeft="@drawable/money"
         android:inputType="number"
-        android:hint="cost"
+        android:hint="@string/price"
         android:layout_width="match_parent"
         android:id="@+id/edit5"
         android:layout_height="wrap_content" />
     <EditText
+        android:drawableLeft="@drawable/repeat"
         android:hint="method"
+        android:text="By month"
         android:layout_width="match_parent"
         android:id="@+id/edit6"
         android:layout_height="wrap_content" />
@@ -32,13 +37,13 @@
         android:orientation="horizontal"
         android:layout_height="wrap_content">
         <Button
-            android:text="cancel"
+            android:text="@string/cancel"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:id="@+id/btn1"
             android:layout_height="wrap_content" />
         <Button
-            android:text="done"
+            android:text="@string/done"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:id="@+id/btn2"

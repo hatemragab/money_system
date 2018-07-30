@@ -4,18 +4,18 @@
 
     <item
         android:id="@+id/iii"
-        android:title="delete_All" />
+        android:title="@string/delete_all" />
     <item
 
         android:id="@+id/logout"
-        android:title="Log_Out">
+        android:title="@string/log_out">
 
 
     </item>
     <item
         android:id="@+id/search23"
         android:icon="@drawable/search"
-        android:title="search"
-        app:actionViewClass="android.support.v7.widget.SearchView"
+        android:title="@string/search"
+
         app:showAsAction="always" />
 </menu>
