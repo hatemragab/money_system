@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_height="wrap_content">
 <EditText
-    android:drawableLeft="@drawable/person"
+    android:drawableLeft="@drawable/person_black"
     android:hint="@string/name"
     android:layout_width="match_parent"
     android:id="@+id/edit3"

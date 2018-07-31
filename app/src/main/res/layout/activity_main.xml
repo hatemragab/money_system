@@ -13,48 +13,44 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:src="@drawable/mo"
         android:layout_height="120dp"
-        android:contentDescription="TODO" />
-    <EditText
+        android:contentDescription="TODO"
+        android:src="@drawable/mo" />
 
-        android:textColor="@android:color/white"
+
+    <EditText
         android:id="@+id/edit1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:textColorHint="#a5c4e4"
         android:drawableLeft="@drawable/person"
-        android:hint="userName"
+        android:hint="@string/user_name"
         android:padding="8dp"
-       />
-
+        android:textColor="@android:color/white"
+        android:textColorHint="#a5c4e4" />
     <EditText
         android:id="@+id/edit2"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-
-        android:textColor="@android:color/white"
-        android:textColorHint="#a5c4e4"
         android:drawableLeft="@drawable/lock"
-        android:hint="password"
-        android:padding="8dp" />
-
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="#a5c4e4" />
 
     <Button
         android:id="@+id/logn"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:textColor="@android:color/white"
         android:background="@drawable/btn_style"
         android:onClick="lognIn"
-        android:text="Logn in" />
+        android:text="@string/logn_in"
+        android:textColor="@android:color/white" />
 
     <CheckBox
-        android:textColor="@android:color/white"
         android:id="@+id/check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,7 +58,8 @@
         android:layout_alignParentTop="true"
         android:layout_margin="6dp"
         android:layout_marginTop="8dp"
-        android:text="save my account" />
+        android:text="@string/save_my_account"
+        android:textColor="@android:color/white" />
 
 
 </LinearLayout>

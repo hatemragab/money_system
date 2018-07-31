@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">متحكم النقود</string>
     <string name="name">الاسم :  </string>
     <string name="phone">رقم التلفون : </string>
     <string name="price">المبلغ : </string>
@@ -30,4 +29,9 @@
     <string name="_at_">عند</string>
     <string name="_to_">الي</string>
     <string name="the_select_item_will_delete">هل تريد انت تمسح هذا العضو !</string>
+    <string name="save_my_account">حفظ تسجيل الدخول</string>
+    <string name="logn_in">تسجيل الدخول</string>
+    <string name="password">كلمه السر </string>
+    <string name="user_name">اسم المستخدم </string>
+    <string name="about_developer">حول المطورين</string>
 </resources>

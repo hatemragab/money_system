@@ -6,6 +6,10 @@
         android:id="@+id/iii"
         android:title="@string/delete_all" />
     <item
+        android:id="@+id/about"
+        android:title="@string/about_developer" />
+
+    <item
 
         android:id="@+id/logout"
         android:title="@string/log_out">

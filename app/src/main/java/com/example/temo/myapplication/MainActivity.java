@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editText1;
     private EditText editText2;
     private CheckBox checkBox;
-    private final String NAME = "root";
+    private final String NAME = "admin";
     private final String PASS = "admin";
     private SharedPreferences sharedPreferences;
 

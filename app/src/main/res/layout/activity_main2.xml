@@ -12,7 +12,7 @@
         android:id="@+id/toole"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#bf2cba"
+        android:background="@color/actionBare"
         android:minHeight="?attr/actionBarSize"
 
         app:title="@string/contacts"

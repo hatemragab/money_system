@@ -1,5 +1,6 @@
 package com.example.temo.myapplication;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -41,20 +42,18 @@ public class Main2Activity extends AppCompatActivity implements MaterialSearchVi
         setContentView(R.layout.activity_main2);
         manager = new DB_manager(this);
         Toolbar toolbar = findViewById(R.id.toole);
-        toolbar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBare)));
+
         materialSearchView = findViewById(R.id.search_view);
         materialSearchView.setHint(getString(R.string.search_by_name));
 
-        //  materialSearchView.setHintTextColor(getResources().getColor(R.color.white));
+
         setSupportActionBar(toolbar);
 
         recyclerView = findViewById(R.id.rec);
 
         arrayList = manager.getArrayList();
-//        recAdapter = new RecAdapter(Main2Activity.this,arrayList);//Adapter
-//        recAdapter.Adaptorsync(this);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setAdapter(recAdapter);
 
         floatingActionButton = findViewById(R.id.fab);
 
@@ -80,10 +79,7 @@ public class Main2Activity extends AppCompatActivity implements MaterialSearchVi
                 phone = view.findViewById(R.id.edit4);
                 cost = view.findViewById(R.id.edit5);
                 method = view.findViewById(R.id.edit6);
-                // spinner = findViewById(R.id.spinner);
-                //  String[] items = new String[]{"by Day", "by week", "by month", "by year"};
-                // ArrayAdapter adapterSpinner = new ArrayAdapter(Main2Activity.this, android.R.layout.simple_spinner_dropdown_item, items);
-                //spinner.setAdapter(adapterSpinner);
+
 
                 final AlertDialog alertDialog = builder.show();
                 CANCEL.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +122,7 @@ public class Main2Activity extends AppCompatActivity implements MaterialSearchVi
                         recAdapter = new RecAdapter(Main2Activity.this, arrayList);//Adapter
                         recAdapter.Adaptorsync(Main2Activity.this);
                         recyclerView.setAdapter(recAdapter);
-                        //                           FileOutputStream out = new FileOutputStream();
+
 
                         alertDialog.dismiss();
 
@@ -166,6 +162,7 @@ public class Main2Activity extends AppCompatActivity implements MaterialSearchVi
 
                 startActivity(new Intent(this, MainActivity.class));
                 finish();
+                break;
             }
             case R.id.iii: {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -202,7 +199,24 @@ public class Main2Activity extends AppCompatActivity implements MaterialSearchVi
                     }
                 });
                 builder.show();
+                break;
             }
+            case R.id.about: {
+                View view = getLayoutInflater().inflate(R.layout.about, null, true);
+                final Dialog dialog = new Dialog(this);
+                dialog.setContentView(view);
+                dialog.setCancelable(false);
+                Button button = view.findViewById(R.id.bbb);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+
+            }
+
         }
         return super.onOptionsItemSelected(item);
     }
