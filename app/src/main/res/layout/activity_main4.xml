@@ -76,6 +76,33 @@
             android:inputType="number" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/datee"
+            android:textColor="#123"
+            android:textSize="18sp" />
+
+
+        <EditText
+            android:id="@+id/updatedate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+             />
+
+    </LinearLayout>
+
+
+
     <LinearLayout
         android:layout_marginTop="3dp"
         android:layout_width="match_parent"
@@ -97,16 +124,9 @@
             />
     </LinearLayout>
 
-    <TextView
-        android:layout_marginTop="3dp"
-        android:id="@+id/update5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="22sp" />
-
     <Button
         android:background="#7094b9"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

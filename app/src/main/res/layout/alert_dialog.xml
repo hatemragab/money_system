@@ -24,6 +24,14 @@
         android:id="@+id/edit5"
         android:layout_height="wrap_content" />
     <EditText
+        android:drawableLeft="@drawable/date_range"
+
+        android:hint="@string/date"
+        android:layout_width="match_parent"
+        android:id="@+id/datee"
+        android:layout_height="wrap_content" />
+
+    <EditText
         android:drawableLeft="@drawable/repeat"
         android:hint="method"
         android:text="By month"

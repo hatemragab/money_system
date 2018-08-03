@@ -34,4 +34,8 @@
     <string name="password">كلمه السر </string>
     <string name="user_name">اسم المستخدم </string>
     <string name="about_developer">حول المطورين</string>
+    <string name="date">التاريخ يوم شهر سنه</string>
+    <string name="datee">التاريخ</string>
+    <string name="Massege">لا يوجد تغير ف السعر وبالتالي لن يتم حفظ التاريخ الجديد !</string>
+    <string name="continu">استمر</string>
 </resources>

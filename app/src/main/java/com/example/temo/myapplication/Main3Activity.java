@@ -2,6 +2,7 @@ package com.example.temo.myapplication;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -43,6 +45,7 @@ public class Main3Activity extends AppCompatActivity {
         textView7 = findViewById(R.id.text7);
         textView8 = findViewById(R.id.text8);
         textView9 = findViewById(R.id.text9);
+
         read = findViewById(R.id.read);
         ActionBar actionBar = getSupportActionBar();
         Objects.requireNonNull(actionBar).setTitle(R.string.view_page);
@@ -51,6 +54,8 @@ public class Main3Activity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         actionBar.show();
     }
+
+
 
     @Override
     protected void onResume() {
@@ -78,6 +83,7 @@ public class Main3Activity extends AppCompatActivity {
                 buffer.append(readed).append("\n").toString();
 
             }
+
             read.setText(buffer + "\n");
             filereader.close();
             reader.close();
@@ -91,7 +97,6 @@ public class Main3Activity extends AppCompatActivity {
         //int x= db_manager.getId2();
         //Toast.makeText(this, "this id is"+x, Toast.LENGTH_SHORT).show();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,12 +115,13 @@ public class Main3Activity extends AppCompatActivity {
                 String phone = mitem1.getPhone();
                 String cost = mitem1.getCost();
                 String method = mitem1.getMethod();
+
                 intent1.putExtra("id", id + "");
                 intent1.putExtra("name", name + "");
                 intent1.putExtra("phone", phone + "");
                 intent1.putExtra("cost", cost + "");
                 intent1.putExtra("method", method + "");
-
+                intent1.putExtra("dateee", mitem1.getDate() + "");
                 startActivity(intent1);
                 break;
             }
@@ -142,13 +148,13 @@ public class Main3Activity extends AppCompatActivity {
                             }
                         });
                         thread.start();
-                      finish();
+                        finish();
                     }
                 });
                 builder.show();
                 break;
             }
-            case android.R.id.home:{
+            case android.R.id.home: {
                 finish();
             }
 

@@ -23,15 +23,17 @@
         android:text="01012309598"
         android:textSize="33sp" />
     <TextView
-        android:textSize="33sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="aly tarek :"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textSize="33sp" />
+
     <TextView
-        android:textSize="33sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="01118538077"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textSize="33sp" />
+
     <Button
         android:id="@+id/bbb"
         android:layout_width="wrap_content"

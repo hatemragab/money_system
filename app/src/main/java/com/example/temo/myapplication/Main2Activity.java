@@ -1,5 +1,6 @@
 package com.example.temo.myapplication;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -63,7 +66,7 @@ public class Main2Activity extends AppCompatActivity implements MaterialSearchVi
             EditText phone;
             EditText cost;
             EditText method;
-
+            EditText date;
 
             @Override
             public void onClick(View v) {
@@ -79,7 +82,7 @@ public class Main2Activity extends AppCompatActivity implements MaterialSearchVi
                 phone = view.findViewById(R.id.edit4);
                 cost = view.findViewById(R.id.edit5);
                 method = view.findViewById(R.id.edit6);
-
+                date = view.findViewById(R.id.datee);
 
                 final AlertDialog alertDialog = builder.show();
                 CANCEL.setOnClickListener(new View.OnClickListener() {
@@ -97,23 +100,10 @@ public class Main2Activity extends AppCompatActivity implements MaterialSearchVi
                         String nPhone = phone.getText().toString().trim();
                         String nCost = cost.getText().toString().trim();
                         String nMethod = method.getText().toString().trim();
-                        // String nMethod = spinner.getSelectedItem().toString();
-                        //SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyy HH:MM a");
-                        //String date = s.format(new Date());
-                        // Calendar calendar = Calendar.getInstance();
+                        String nDate = date.getText().toString().trim();
 
-                        // String date = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
 
-                        Date dateee = new Date(); // your date
-                        Calendar cal = Calendar.getInstance();
-                        cal.setTime(dateee);
-                        int year = cal.get(Calendar.YEAR);
-                        int month = cal.get(Calendar.MONTH) + 1;
-                        int day = cal.get(Calendar.DAY_OF_MONTH);
-                        String date = day + "/" + month + "/" + year;
-                        //Toast.makeText(Main2Activity.this, "" + day + "/" + month + "/" + year, Toast.LENGTH_SHORT).show();
-
-                        manager.insert(nName, nPhone, date, nCost, nMethod);
+                        manager.insert(nName, nPhone, nDate, nCost, nMethod);
 
                         Toast.makeText(Main2Activity.this, R.string.inserted, Toast.LENGTH_SHORT).show();
 
@@ -256,4 +246,6 @@ public class Main2Activity extends AppCompatActivity implements MaterialSearchVi
         startActivity(intent);
 
     }
+
+
 }

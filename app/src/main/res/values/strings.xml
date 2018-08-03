@@ -35,6 +35,10 @@
     <string name="password">password</string>
     <string name="user_name">User Name</string>
     <string name="about_developer">about developer</string>
+    <string name="date">date : as D/M/Y </string>
+    <string name="datee">date :</string>
+    <string name="Massege">there is no change in price the new data will not save !</string>
+    <string name="continu">continue</string>
 
 
 </resources>
